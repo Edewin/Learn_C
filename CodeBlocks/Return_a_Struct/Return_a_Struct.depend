@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1450451130 source:d:\eduardsoltuzu\workspacetests\codeblocks\master\return_a_struct\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
