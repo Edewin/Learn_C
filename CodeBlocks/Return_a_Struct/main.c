@@ -11,8 +11,9 @@ typedef struct myStruct
     char sArray[60];
 }StructMatrix;
 
-void modifyToStructMatrix(StructMatrix** mx);
+void modifyToStructMatrix(StructMatrix* mx);
 void printMemsStructMatrix(StructMatrix* sMx);
+void allocMemToStructMatrix(StructMatrix** mMx);
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
     printMemsStructMatrix(&simpleM);
 
     // change values
-    modifyToStructMatrix(&ptrM);
+    modifyToStructMatrix(ptrM);
 
     // print them again
     printMemsStructMatrix(ptrM);
@@ -39,11 +40,11 @@ int main()
     return 0;
 }
 
-void modifyToStructMatrix(StructMatrix** mx)
+void modifyToStructMatrix(StructMatrix* mx)
 {
-    (*mx)->m++;
-    (*mx)->n = 50;
-    strcpy((*mx)->sArray, "The string has just been modified");
+    (mx)->m++;
+    (mx)->n = 50;
+    strcpy((mx)->sArray, "The string has just been modified");
 }
 
 void printMemsStructMatrix(StructMatrix* sMx)
@@ -51,4 +52,9 @@ void printMemsStructMatrix(StructMatrix* sMx)
     printf("m = %d\n", sMx->m);
     printf("n = %d\n", sMx->n);
     printf("sArray = %s\n", sMx->sArray);
+}
+void allocMemToStructMatrix(StructMatrix** mMx)
+{
+    StructMatrix bMx;
+    *mMx = &bMx;
 }
