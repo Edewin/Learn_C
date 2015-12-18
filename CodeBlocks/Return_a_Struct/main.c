@@ -19,6 +19,7 @@ int main()
 {
     printf("hello World!\n\n");
 
+
     StructMatrix* ptrM = NULL;
    // StructMatrix simpleM;
     //ptrM = &simpleM;
@@ -27,8 +28,8 @@ int main()
     allocMemToStructMatrix( &ptrM );
 
     // init vars
-    ptrM->m = 0;
-    ptrM->n = 0;
+    ptrM->m = 5;
+    ptrM->n = 2;
     strcpy(ptrM->sArray, "TO DO\n");
 
     // print them
@@ -46,7 +47,7 @@ int main()
 void modifyToStructMatrix(StructMatrix* mx)
 {
     (mx)->m++;
-    (mx)->n = 50;
+    (mx)->n += 50;
     strcpy((mx)->sArray, "The string has just been modified");
 }
 
@@ -58,19 +59,20 @@ void printMemsStructMatrix(StructMatrix* sMx)
 }
 void allocMemToStructMatrix(StructMatrix** mMx)
 {
-    StructMatrix bMx;
-    *mMx = &bMx;
+    StructMatrix* bMx = (StructMatrix*)malloc(sizeof(StructMatrix));
+    *mMx = bMx;
 }
 
 /* Output:
 
 hello World!
 
-m = 0
-n = 2067480704
-sArray =
-m = 32766
-n = 50
+m = 5
+n = 2
+sArray = TO DO
+
+m = 6
+n = 52
 sArray = The string has just been modified
 
  */
